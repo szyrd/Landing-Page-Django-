@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <section id="consultaion" class="py-5">
+        <div class="container">
+            <div class="title text-center">
+                <h2 class="position-relative d-inline-block">Список Консультаций</h2>
+            </div>
+            <table class="table table-borderless">
+                <tr>
+                    <th>ID</th>
+                    <th>Ф.И.О</th>
+                    <th>Номер Телефон</th>
+                    <th>Управление</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>yerdana seyitzhan</td>
+                    <td>+77074895541</td>
+                    <td>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </td>
+                </tr>
+
+                {% for obj in consultations_list %}
+                {% csrf_token %}
+                <tr>
+                    <td>{{obj.id}}</td>
+                    <td>{{obj.name}}</td>
+                    <td>{{obj.phoneNumber}}</td>
+                    <td><a href="/infoDelete/?nid={{ obj.id }}" style="color:red;"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+
+{% endblock %}

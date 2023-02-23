@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <section id="Question" class="py-5">
+        <div class="container">
+            <div class="title text-center">
+                <h2 class="position-relative d-inline-block">Клиент Вопросы</h2>
+            </div>
+            <table class="table table-borderless">
+                <tr>
+                    <th>ID</th>
+                    <th>Ф.И.О</th>
+                    <th>Номер телефона</th>
+                    <th>Вопрос</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>yerdana seyitzhan</td>
+                    <td>+77074895541</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, aspernatur?</td>
+                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>michael Jackson</td>
+                    <td>+77074895541</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium vero officiis voluptatum nihil labore harum?</td>
+                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Elvis Presly</td>
+                    <td>+77074895541</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur corrupti, reprehenderit sit nihil quaerat provident natus quae nobis! Ullam, pariatur!</td>
+                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                </tr>
+                {% for obj in question_list %}
+                {% csrf_token %}
+                <tr>
+                    <td>{{obj.id}}</td>
+                    <td>{{obj.name}}</td>
+                    <td>{{obj.phone}}</td>
+                    <td>{{obj.question}}</td>
+                    <td><a href="/quesDelete/?nid={{ obj.id }}" style="color:red;"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+    
+
+{% endblock %}

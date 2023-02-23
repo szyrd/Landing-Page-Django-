@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section id="Images" class="py-5">
+        <div class="container">
+            <div class="title text-center">
+                <h2 class="position-relative d-inline-block">Список картинки</h2>
+            </div>
+            <button class="btn btn-primary"><i class="fa-solid fa-plus" style="margin-right:10px;"></i><a href="/addImage/" style="text-decoration: none; color: black;" >Добавить картинка</a></button>
+            <table class="table table-borderless">
+                <tr>
+                    <th>ID</th>
+                    <th>Названия картика</th>
+                    <th>Картинка</th>
+                    <th>управление</th>
+                </tr>
+                {% for obj in img_list %}
+                {% csrf_token %}
+                <tr>
+                    <td>{{obj.id}}</td>
+                    <td>{{obj.nameImg}}</td>
+                    <td>{{obj.image}}</td>
+                    <td><a href="/imageDelete/?nid={{ obj.id }}" style="color:red;"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+{% endblock %}

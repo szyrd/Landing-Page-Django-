@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <section id="price" class="py-5">
+        <div class="container">
+            <div class="title text-center">
+                <h2 class="position-relative d-inline-block">Список Цены</h2>
+            </div>
+            <button class="btn btn-primary"><i class="fa-solid fa-plus" style="margin-right:10px;"></i><a href="/addPrice/" style="text-decoration: none; color: black;" >Добавить цены</a></button>
+            <table class="table table-secondary table-hover">
+                <tr class="table-dark">
+                    <th>id</th>
+                    <th>Название Ремонт одежды</th>
+                    <th>Описание</th>
+                    <th>цена</th>
+                    <th>управление</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Перезакрыть край, перенести резинку или бейку</td>
+                    <td>1 см</td>
+                    <td>от 250 тг.</td>
+                    <td>
+                        <a href="" style="margin-right:20px; color: rgb(46, 167, 232);"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="" style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>Вертикатльный шов</td>
+                    <td>1 см</td>
+                    <td>от 450 тг.</td>
+                    <td>
+                        <a href="" style="margin-right:20px; color: rgb(46, 167, 232);"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="" style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                {% for obj in price_list %}
+                {% csrf_token %}
+                <tr>
+                    <td>{{obj.id}}</td>
+                    <td>{{obj.priceName}}</td>
+                    <td>{{obj.priceDescrip}}</td>
+                    <td>{{obj.price}}</td>
+                    <td>
+                        <a href="http://127.0.0.1:8000/priceEdit/{{obj.id}}/" style="margin-right:20px; color: rgb(46, 167, 232);"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="/priceDelete/?nid={{ obj.id }}" style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            
+        </div>
+    </section>
+
+{% endblock %}

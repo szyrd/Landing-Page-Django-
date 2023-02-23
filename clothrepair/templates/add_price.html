@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <section id="addPrice" class="py-5">
+        <div class="container">
+            <div class="title text-center">
+                <h2 class="position-relative d-inline-block">Добавить Цена</h2>
+            </div>
+            <form class="p-5" method="post">
+                {% csrf_token %}
+                <!-- Text input -->
+                <div class="mb-3 row">
+                    <label for="namePrice" class="col-sm-2 col-form-label">Название Ремонт одежды:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="namePrice" name="priceName">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="descrip" class="col-sm-2 col-form-label">Описание:</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="descrip" class="form-control" name="priceDescrip"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="price" class="col-sm-2 col-form-label">Цена:</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="price" class="form-control" name="price"/>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">Добавить</button>
+                </div>
+            </form>
+
+        </div>
+    </section>
+{% endblock %}

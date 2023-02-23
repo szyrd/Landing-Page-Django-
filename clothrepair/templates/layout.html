@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question List</title>
+    <!--fontawersome cnd-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/info_list.css'%}">
+</head>
+<body>
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-4">
+        <div class="container">
+            <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0">
+                <span
+                    class="text-uppercase fw-lighter fw-bolder row justify-content-center position-relative d-inline-block ms-4">Safiiika</span>
+                <img src="{%static 'img/redHeartIcon-removebg-preview.png'%}" alt="" style="width:20px; height: 20px;">
+                <img src="{%static 'img/redHeartIcon-removebg-preview.png'%}" alt="" style="width:20px; height: 20px;">
+                <span
+                    class="text-uppercase fw-lighter fw-bolder row justify-content-center position-relative d-inline-block"
+                    style="margin-left: 3px;">Brand</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item px-2 py-2">
+                        <a class="nav-link text-uppercase text-dark" href="/infoList/">список консультаций</a>
+                    </li>
+                    <li class="nav-item px-2 py-2">
+                        <a class="nav-link text-uppercase text-dark" href="/quesList/">Список вопросов</a>
+                    </li>
+                    <li class="nav-item px-2 py-2">
+                        <a class="nav-link text-uppercase text-dark" href="/priceList/">список цены</a>
+                    </li>
+                    <li class="nav-item px-2 py-2">
+                        <a class="nav-link text-uppercase text-dark" href="/imageList/">Список картинки</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Navbar END-->
+    {% block content %}
+    {% endblock %}
+
+    <!--JQuery-->
+    <script src="js/jquery-3.6.1.js"></script>
+    <!--Bootstrap JS-->
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <!--Isotopes js-->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
